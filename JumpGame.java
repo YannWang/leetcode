@@ -39,7 +39,7 @@ public class JumpGame {
             }
         }
 
-        return maxJump >= length - 1 ? true : false;
+        return maxJump >= length - 1;
     }
 
     public static void main(String[] args) {

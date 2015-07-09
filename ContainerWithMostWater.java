@@ -5,9 +5,8 @@ import java.util.List;
 
 public class ContainerWithMostWater {
     public int maxArea(List<Integer> heigth) {
-        int area = 0;
 
-        return area;
+        return 0;
     }
 
     //parameters: (m, am), (n, an)
@@ -20,7 +19,7 @@ public class ContainerWithMostWater {
     }
 
     public static void main(String[] args) {
-        List<Integer> paraList = new ArrayList<Integer>();
+        List<Integer> paraList = new ArrayList<>();
         paraList.add(1);
         paraList.add(4);
         paraList.add(4);

@@ -2,7 +2,7 @@ package leetcode;
 
 public class ZigZagConverstion {
     public static String convert(String s, int nRows) {
-        if (s == null) return s;
+        if (s == null) return null;
         if (s == "" || nRows <= 1) return s;
         StringBuilder[] zigzag = new StringBuilder[nRows];
         for (int i = 0; i < nRows; i++) {

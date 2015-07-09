@@ -13,9 +13,8 @@ public class MergeKSortedArray {
         for (int i = 0; i < lists.length; i++) {
             indexOfListSet.add(i);
         }
-        Set<Integer> copySet = indexOfListSet;
         ListNode head = new ListNode(0);
-        int size = copySet.size();
+        int size = indexOfListSet.size();
         while (size != 0) {
             int min = Integer.MAX_VALUE;
             for (int i : indexOfListSet) {

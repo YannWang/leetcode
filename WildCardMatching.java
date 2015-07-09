@@ -13,8 +13,7 @@ public class WildCardMatching {
             i++;
         }
         if (i == p.length()) {
-            if (i == s.length()) return true;
-            else return false;
+            return i == s.length();
         }
         if (i == s.length()) {
             char[] remain = p.substring(i).toCharArray();
@@ -41,8 +40,7 @@ public class WildCardMatching {
         int pl = p.length();
         if (sl == 0 && pl == 0) return true;
         if (sl == 0) {
-            if (p.charAt(pl - 1) == '*') return isMatch2(p.substring(0, pl - 1), s);
-            else return false;
+            return p.charAt(pl - 1) == '*' && isMatch2(p.substring(0, pl - 1), s);
         }
         if (pl == 0) return false;
 
@@ -54,7 +52,7 @@ public class WildCardMatching {
             for (int i = 0; i <= sl; i++) {
                 String sp = s.substring(0, sl - i);
                 String pp = p.substring(0, pl);
-                if (isMatch2(sp, pp) == true) return true;
+                if (isMatch2(sp, pp)) return true;
 //                if (isMatch2(s.substring(0, sl - i), p.substring(0, pl - 1)) == true) return true;
             }
         }
@@ -112,7 +110,7 @@ public class WildCardMatching {
             }
         }
 
-        return (isMatch[pl][sl] == 1) ? true : false;
+        return (isMatch[pl][sl] == 1);
     }
 
     //backtracking solution

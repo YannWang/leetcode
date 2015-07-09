@@ -48,11 +48,11 @@ public class MaximunRectangle {
         }
 
         int maxArea = 0;
-        for (int i = 0; i < rows; i++) {
+        for (char[] aMatrix : matrix) {
             int currentLeft = 0, currentRight = columns;
 
             for (int j = 0; j < columns; j++) {
-                if (matrix[i][j] == '1') {
+                if (aMatrix[j] == '1') {
                     left[j] = Math.max(left[j], currentLeft);
                     height[j]++;
                 } else {
@@ -64,7 +64,7 @@ public class MaximunRectangle {
             }
 
             for (int j = columns - 1; j >= 0; j--) {
-                if (matrix[i][j] == '1') {
+                if (aMatrix[j] == '1') {
                     right[j] = Math.min(right[j], currentRight);
                     maxArea = Math.max(maxArea, (right[j] - left[j]) * height[j]);
                 } else {

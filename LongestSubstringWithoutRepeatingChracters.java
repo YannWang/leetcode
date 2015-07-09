@@ -8,9 +8,9 @@ public class LongestSubstringWithoutRepeatingChracters {
             return 0;
         int length = 0;
 
-        char currentChar = ' ';
+        char currentChar;
         int index = 0;
-        HashMap<Character, Integer> indexMap = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> indexMap = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
             currentChar = s.charAt(i);
             if (indexMap.containsKey(currentChar)) {

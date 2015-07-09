@@ -1,7 +1,6 @@
 package leetcode;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  * Created by tech4 on 2015/7/9.
@@ -53,9 +52,7 @@ public class Algorithms {
         //添加哨兵
         int[] J = new int[jobs + 1];
         int[] extdD = new int[jobs + 1];
-        for (int i = 1; i <= jobs; i++) {
-            extdD[i] = D[i - 1];
-        }
+        System.arraycopy(D, 0, extdD, 1, jobs);
         J[1] = 1;
 
         int k = 1;
@@ -65,18 +62,14 @@ public class Algorithms {
                 r--;
             }
             if (extdD[J[r]] <= extdD[i] && extdD[i] > r) {
-                for (int j = k; j >= r + 1; j--) {
-                    J[j + 1] = J[j];
-                }
+                System.arraycopy(J, r + 1, J, r + 1 + 1, k + 1 - (r + 1));
                 J[r + 1] = i;
                 k++;
             }
         }
 
         int[] acceptedJobs = new int[k];
-        for (int i = 0; i < k; i++) {
-            acceptedJobs[i] = J[i + 1];
-        }
+        System.arraycopy(J, 1, acceptedJobs, 0, k);
         return acceptedJobs;
     }
 
@@ -111,15 +104,12 @@ public class Algorithms {
         for (int i = 0; i < profits.length; i++) {
             triples[i] = new Triple(i, profits[i], delay[i]);
         }
-        Arrays.sort(triples, new Comparator<Triple>() {
-            @Override
-            public int compare(Triple o1, Triple o2) {
-                int num1 = o1.profits;
-                int num2 = o2.profits;
-                if (num1 < num2) return -1;
-                else if (num1 == num2) return 0;
-                else return 1;
-            }
+        Arrays.sort(triples, (o1, o2) -> {
+            int num1 = o1.profits;
+            int num2 = o2.profits;
+            if (num1 < num2) return -1;
+            else if (num1 == num2) return 0;
+            else return 1;
         });
         for (int i = profits.length - 1; i >= 0; i--) {
             delay[i] = triples[i].delay;
@@ -131,8 +121,8 @@ public class Algorithms {
         System.out.println("Accepted jobs: " + Arrays.toString(accepted));
 
         int maxProfits = 0;
-        for (int i = 0; i < accepted.length; i++) {
-            maxProfits += triples[accepted[i] - 1].profits;
+        for (int anAccepted : accepted) {
+            maxProfits += triples[anAccepted - 1].profits;
         }
         return maxProfits;
     }

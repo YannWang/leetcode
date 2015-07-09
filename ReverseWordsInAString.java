@@ -5,7 +5,7 @@ import java.util.Stack;
 public class ReverseWordsInAString {
     public String reverseWords(String s) {
         if (s == null || s == "") return s;
-        if (s.contains(" ") == false) return s;
+        if (!s.contains(" ")) return s;
 
         int len = s.length();
         int location = 0;
@@ -28,11 +28,11 @@ public class ReverseWordsInAString {
     }
 
     public String reverseWordsV2(String s) {
-        if (s == null) return s;
+        if (s == null) return null;
         s = s.trim();
-        if (s == "" || s.contains(" ") == false) return s;
+        if (s == "" || !s.contains(" ")) return s;
 
-        Stack<Integer> stack = new Stack<Integer>();
+        Stack<Integer> stack = new Stack<>();
         int len = s.length();
 
         for (int i = 0; i < len; i++) {
@@ -40,7 +40,7 @@ public class ReverseWordsInAString {
                 stack.push(i);
         }
 
-        int location1 = 0;
+        int location1;
         int location2 = len;
         String rs = "";
         while (!stack.empty()) {

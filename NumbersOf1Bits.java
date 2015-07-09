@@ -3,7 +3,7 @@ package leetcode;
 public class NumbersOf1Bits {
     public int hammingWeight(int n) {
         int weight = 0;
-        long unsignedNumber = 0L;
+        long unsignedNumber;
         if (n >= 0) {
             unsignedNumber = n;
         } else {

@@ -6,10 +6,7 @@ public class WordLadder {
     public int ladderLength(String start, String end, Set<String> dict) {
         if (start == end)
             return 0;
-        int sDist = 0;
-
-
-        return sDist;
+        return 0;
     }
 
     int wordDist(String a, String b) {

@@ -62,7 +62,7 @@ public class BinaryTreeRightSideView {
         root.left.right = new TreeNode(5);
         root.right.right = new TreeNode(4);
 
-        List<Integer> rList = new ArrayList<Integer>();
+        List<Integer> rList;
         rList = new BinaryTreeRightSideView().rightSideView(root);
         System.out.println(rList);
         System.out.println("Say something!");

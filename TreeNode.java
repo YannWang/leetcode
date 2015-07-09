@@ -2,6 +2,7 @@ package leetcode;
 
 /**
  * Created by tech4 on 2015/7/7.
+ * Tree Node.
  */
 public class TreeNode {
     int val;
@@ -16,9 +17,6 @@ public class TreeNode {
         String[] ss = s.split(",");
 //        Queue<TreeNode> queue = new Queue<TreeNode>() {
 //        }
-        for (int i = 0; i < ss.length; i++) {
-
-        }
 
         return null;
     }

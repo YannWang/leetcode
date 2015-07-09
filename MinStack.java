@@ -3,7 +3,7 @@ package leetcode;
 import java.util.ArrayList;
 
 public class MinStack {
-    ArrayList<Integer> list = new ArrayList<Integer>();
+    ArrayList<Integer> list = new ArrayList<>();
     private final int currentSize = 20;
     private final int addSize = 10;
 

@@ -10,17 +10,12 @@ public class RotateArray {
         if (k == 0) return;
 
         int[] corrNums = new int[len];
-        for (int i = 0; i < k; i++) {
-            corrNums[len - k + i] = nums[i];
-        }
-        for (int i = 0; i < len - k; i++) {
-            corrNums[i] = nums[k + i];
-        }
+        System.arraycopy(nums, 0, corrNums, len - k, k);
+        System.arraycopy(nums, k, corrNums, 0, len - k);
         nums = corrNums;
-        for (int i = 0; i < nums.length; i++) {
-            System.out.print(nums[i] + "  ");
+        for (int num : nums) {
+            System.out.print(num + "  ");
         }
-        return;
     }
 
     public static void main(String[] args) {
