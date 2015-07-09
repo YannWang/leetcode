@@ -107,18 +107,15 @@ public class Algorithms {
         Arrays.sort(triples, (o1, o2) -> {
             int num1 = o1.profits;
             int num2 = o2.profits;
-            if (num1 < num2) return -1;
+            if (num1 < num2) return 1;
             else if (num1 == num2) return 0;
-            else return 1;
+            else return -1;
         });
-        for (int i = profits.length - 1; i >= 0; i--) {
+
+        for (int i = 0; i < profits.length - 1; i++) {
             delay[i] = triples[i].delay;
         }
-        System.out.println("delay array: " + Arrays.toString(delay));
-        System.out.println(Arrays.toString(JS(delay)));
         int[] accepted = JS(delay);
-
-        System.out.println("Accepted jobs: " + Arrays.toString(accepted));
 
         int maxProfits = 0;
         for (int anAccepted : accepted) {
