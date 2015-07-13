@@ -22,7 +22,33 @@ public class GasStation {
         return -1;
     }
 
-    public int canCompleteCircuit2(int[] gas, int[] cost) {
-        return -1;
+    public static int canCompleteCircuit2(int[] gas, int[] cost) {
+        if (gas.length == 0 || gas.length != cost.length) {
+            return -1;
+        }
+        if (gas.length == 1) {
+            return 0;
+        }
+        int start = 0, end = 1;
+        int remainGas = gas[0] + cost[0];
+
+
+        while (start != end) {
+            if (remainGas < 0) {
+                start = (start - 1) % gas.length;
+                remainGas += gas[start] - cost[start];
+            } else {
+                remainGas += gas[end] - cost[end];
+                end = (end + 1) % gas.length;
+            }
+        }
+        if (remainGas >= 0) return start;
+        else return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] gas = {5, 0, 9, 4, 3, 3, 9, 9, 1, 2};
+        int[] cost = {6, 7, 5, 9, 5, 8, 7, 1, 10, 5};
+        System.out.println(canCompleteCircuit2(gas, cost));
     }
 }

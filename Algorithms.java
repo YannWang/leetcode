@@ -35,7 +35,7 @@ public class Algorithms {
      * 作业已按受益排序
      *
      * @param D: 按收益排序的作业所需要消耗的时间的数组
-     *           return : 按调度顺序排列的数组,作业序号为1...n，不是由0开始
+     * return : 按调度顺序排列的数组,作业序号为1...n，不是由0开始
      */
     public static int[] JS(int[] D) {
         int jobs = D.length;
@@ -125,8 +125,10 @@ public class Algorithms {
     }
 
     public static void main(String[] args) {
-        int[] profits = {100, 10, 15, 20};
-        int[] delay = {2, 1, 2, 1};
+//        int[] profits = {100, 10, 15, 20};
+//        int[] delay = {2, 1, 2, 1};
+        int[] profits = {20, 15, 10, 5, 1};
+        int[] delay = {2, 2, 1, 3, 3};
         System.out.println("Return accepted array: " + Arrays.toString(JS(delay)));
         System.out.println("Max profits is: " + greedyJob(profits, delay));
     }
