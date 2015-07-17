@@ -27,15 +27,16 @@ public class GasStation {
             return -1;
         }
         if (gas.length == 1) {
-            return 0;
+            if (gas[0] >= cost[0]) return 0;
+            else return -1;
         }
         int start = 0, end = 1;
-        int remainGas = gas[0] + cost[0];
+        int remainGas = gas[0] - cost[0];
 
 
         while (start != end) {
             if (remainGas < 0) {
-                start = (start - 1) % gas.length;
+                start = (start - 1 + gas.length) % gas.length;
                 remainGas += gas[start] - cost[start];
             } else {
                 remainGas += gas[end] - cost[end];
